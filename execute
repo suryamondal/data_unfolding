@@ -1,0 +1,12 @@
+#!/bin/bash
+
+reset
+source /home/surya/products/ROOT/root_v6.22.08/bin/thisroot.sh
+rm anal_muon_unfold_basic_half
+make unfold_basic_half
+./anal_muon_unfold_basic_half data/coorelation_half.root
+cd data
+ps2pdf coorelation_half_o.ps
+cd ..
+evince data/coorelation_half_o.pdf &
+
