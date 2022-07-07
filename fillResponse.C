@@ -143,6 +143,7 @@ void unfoldingCorsika_Half() {
   Double_t momin, momout, momerr, chi2, theout, phiout, thein, phiin, recosep;
   Double_t trkLen;
 
+  /** all simulated events */
   f_simh->cd();
   
   TTree *MomTreeh = (TTree*)f_simh->Get("SimTree");
@@ -163,6 +164,7 @@ void unfoldingCorsika_Half() {
     } // for(int ijh=0;ijh<2;ijh++) {
   }   // for(Long64_t ij=0;ij<nentriesh;ij++) {
 
+  /** all simulated events with trigger */
   f_simh->cd();
   
   TTree *MomTreet = (TTree*)f_simh->Get("TriggerTree");
@@ -206,6 +208,7 @@ void unfoldingCorsika_Half() {
   cout<<" sum_sr_err "<<sum_sr_err<<endl;
   cout<<" sum_sr_err wted "<<sum_sr_err/f_thephi_sr->GetSumOfWeights()<<endl;
   
+  /** all simulated events with reconstruction */
   f_sim->cd();
   
   TTree *MomTree = (TTree*)f_sim->Get("MomTree");
@@ -270,6 +273,7 @@ void unfoldingCorsika_Half() {
   } // for(int ij=0;ij<sentries;ij++) {
 
   
+  /** data with reconstruction */
   f_data->cd();
   
   TTree *MomTreed = (TTree*)f_data->Get("MomTree");
@@ -280,7 +284,7 @@ void unfoldingCorsika_Half() {
   MomTreed->SetBranchAddress("momerr",&momerr);
   MomTreed->SetBranchAddress("theout",&theout);
   MomTreed->SetBranchAddress("phiout",&phiout);
-  MomTreed->SetBranchAddress("recosep",&recosep); // time seperation from the previous event
+  MomTreed->SetBranchAddress("recosep",&recosep); // time seperation from the previous reconstructed event
   
   int dentries = MomTreed->GetEntries();
   for(int ij=0;ij<dentries;ij++) {
