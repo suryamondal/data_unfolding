@@ -280,7 +280,7 @@ void unfoldingCorsika_Half() {
   MomTreed->SetBranchAddress("momerr",&momerr);
   MomTreed->SetBranchAddress("theout",&theout);
   MomTreed->SetBranchAddress("phiout",&phiout);
-  MomTreed->SetBranchAddress("recosep",&recosep);
+  MomTreed->SetBranchAddress("recosep",&recosep); // time seperation from the previous event
   
   int dentries = MomTreed->GetEntries();
   for(int ij=0;ij<dentries;ij++) {
